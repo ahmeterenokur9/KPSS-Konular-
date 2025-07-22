@@ -1,4 +1,4 @@
-// KPSS Lisans Ders ve Konuları (Sitedeki gibi ayrıntılı Türkçe, Matematik, Geometri, Tarih ve Coğrafya)
+// KPSS Lisans Ders ve Konuları (Sitedeki gibi ayrıntılı Türkçe, Matematik, Geometri, Tarih, Coğrafya, Vatandaşlık)
 const kpssKonulari = [
   {
     ders: 'Türkçe',
@@ -501,13 +501,124 @@ const kpssKonulari = [
   {
     ders: 'Vatandaşlık',
     konular: [
-      'Hukukun Temel Kavramları',
-      'Anayasa',
-      'Yasama',
-      'Yürütme',
-      'Yargı',
-      'Temel Hak ve Hürriyetler',
-      'Uluslararası Kuruluşlar'
+      {
+        konu: 'Hukukun Temel Kavramları',
+        altKonular: [
+          'Hukukun Tanımı',
+          'Hukuk Kaynaklarıyla İlgili Kavramlar',
+          'Yazısız Kaynaklar (Örf Ve Adet Hukuku)',
+          'Yardımcı Kaynaklar',
+          'Hukuk Kurallarının Yaptırımları',
+          'Kamu Hukuku Dalları',
+          'Ceza Ve Ehliyet',
+          'Özel Hukuk Dalları.',
+          'Hakkın Tanımı Ve Türleri'
+        ]
+      },
+      {
+        konu: 'Devlet Biçimleri Demokrasi Ve Kuvvetler Ayrılığı',
+        altKonular: [
+          'Devlet Biçimleri Ve Hükümet Sistemleri',
+          'Devlet Kavramı',
+          'Devlet Kurucu Unsurları',
+          'Devlet Kavramına İlişkin Ayrımlar',
+          'Yapılarına Göre Devlet Şekilleri',
+          'Egemenliğin Kaynağına Göre Devlet Şekilleri',
+          'Hükümet Sistemleri'
+        ]
+      },
+      {
+        konu: 'Anayasa Hukukuna Giriş Temel Kavramlar Ve Türk Anayasa Tarihi',
+        altKonular: [
+          'Anayasa',
+          'Anayasa Kavramına İlişkin Ayrımlar',
+          'Yazılı Anayasa - Yazısız Anayasa Ayrımı',
+          'Türk Anayasa Tarih',
+          'Kanun-U Esasî (1876)',
+          'Kanun-U Esasî’de 1909 Değişiklikleri (İkinci Meşrutiyet)',
+          '1921 Teşkilât-I Esasiye Kanunu',
+          'Teşkilat-I Esasiye Kanunu’nda 29 Ekim 1923 Tarihli Değişiklikler',
+          '1924 Anayasası',
+          '1961 Anayasası',
+          '1971-1973 Anayasa Değişiklikleri',
+          '1982 Anayasası',
+          '1982 Anayasasının Temel Özellikleri',
+          '2017 Anayasasının Temel Özellikleri',
+          'Türk Tarihindeki Referandumlar'
+        ]
+      },
+      {
+        konu: '1982 Anayasasının Temel İlkeleri',
+        altKonular: [
+          '1982 Anayasası’nın Temel İlkeleri'
+        ]
+      },
+      {
+        konu: 'Yasama',
+        altKonular: [
+          'Yasama Organı',
+          'Yasama İşlemleri',
+          'Tbmm İç Yapı Ve Çalışma Düzeni',
+          'Toplantı Ve Karar Yeter Sayısı',
+          'Tbmm Görev Ve Yetkileri',
+          'Tbmm Bilgi Edinme Ve Denetim Yolları'
+        ]
+      },
+      {
+        konu: 'Yürütme',
+        altKonular: [
+          'Yürütme',
+          'Kanun Hükmünde Kararnameler',
+          'Cumhurbaşkanlığı Kararnamesi',
+          'Yönetmelik',
+          'Cumhurbaşkanı’nın Görev Ve Yetkileri'
+        ]
+      },
+      {
+        konu: 'Yargı',
+        altKonular: [
+          'Yargı',
+          'Yargı Organı',
+          'Hakimler Ve Savcılar Kurulu',
+          'Yüksek Mahkemeler',
+          'Anayasa Mahkemesi',
+          'Yargıtay',
+          'Danıştay',
+          'Uyuşmazlık Mahkemesi',
+          'Sayıştay'
+        ]
+      },
+      {
+        konu: 'Temel Hak Ve Hürriyetler',
+        altKonular: [
+          'Temel Hak Ve Hürriyetler',
+          'Temel Hakların Türleri'
+        ]
+      },
+      {
+        konu: 'İdare Hukuku',
+        altKonular: [
+          'İdare Hukuku',
+          'İdare (Kamu Yönetimi)',
+          'Yerel Yönetim Organları',
+          'Kamu Kuruluşları'
+        ]
+      },
+      {
+        konu: 'Uluslararası Kuruluşlar Ve Güncel Olaylar',
+        altKonular: [
+          'Uluslararası Kuruluşlar Ve Güncel Olaylar',
+          'Uluslararası Örgüt Ve Kuruluşlar',
+          'Kpss Güncel Bilgiler',
+          'Türkiye’ye Vize Uygulamayan Ülkeler',
+          'Unesco’nun Dünya Mirası Listesindeki Doğal Ve Kültürel Varlıklarımız',
+          '1982 Anayasası Tam Metni',
+          'T.C. Anayasası Madde Dizini',
+          '1982 Anayasasında 2007 Değişiklikleri',
+          '1982 Anayasasında 2010 Değişiklikleri',
+          '1982 Anayasasında 2017 Değişiklikleri'
+        ]
+      }
     ]
   },
   {
