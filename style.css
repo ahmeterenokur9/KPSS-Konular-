@@ -7,12 +7,12 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 700px;
   margin: 48px auto 32px auto;
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 6px 32px rgba(60, 72, 100, 0.12);
-  padding: 40px 28px 32px 28px;
+  padding: 40px 18px 32px 18px;
   position: relative;
 }
 
@@ -25,26 +25,136 @@ h1 {
   letter-spacing: -1px;
 }
 
-.konu-ders {
-  margin-bottom: 36px;
-  background: #f6f8fa;
+.accordion {
+  width: 100%;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(60, 72, 100, 0.04);
-  padding: 24px 20px 18px 20px;
-  transition: box-shadow 0.2s;
-}
-.konu-ders:hover {
-  box-shadow: 0 6px 24px rgba(60, 72, 100, 0.10);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(60, 72, 100, 0.07);
+  background: #f6f8fa;
 }
 
-.konu-ders h2 {
-  color: #3b4a5a;
-  font-size: 1.3rem;
+.accordion-item {
+  border-bottom: 1px solid #e5e7eb;
+  background: #f6f8fa;
+}
+.accordion-item:last-child {
+  border-bottom: none;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 20px 18px;
+  font-size: 1.18rem;
   font-weight: 700;
-  margin-bottom: 18px;
-  letter-spacing: -0.5px;
-  border-left: 4px solid #6366f1;
-  padding-left: 12px;
+  color: #3b4a5a;
+  background: #f6f8fa;
+  border: none;
+  outline: none;
+  transition: background 0.18s;
+  position: relative;
+  user-select: none;
+}
+.accordion-header:hover, .accordion-header:focus {
+  background: #e0e7ff;
+}
+
+.accordion-header .arrow {
+  margin-right: 16px;
+  font-size: 1.2em;
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1);
+}
+.accordion-header.open .arrow {
+  transform: rotate(90deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #f9fafb;
+  transition: max-height 0.35s cubic-bezier(.4,2,.6,1);
+  box-sizing: border-box;
+}
+.accordion-content.open {
+  padding: 12px 24px 18px 38px;
+  max-height: 2000px;
+  transition: max-height 0.45s cubic-bezier(.4,2,.6,1);
+}
+
+/* Alt başlıklar için iç içe accordion */
+.sub-accordion {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-left: 3px solid #6366f1;
+  border-radius: 0 8px 8px 0;
+  background: #f3f4f6;
+  box-shadow: 0 1px 4px rgba(60, 72, 100, 0.04);
+}
+.sub-accordion-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 12px 10px 12px 18px;
+  font-size: 1.04rem;
+  font-weight: 600;
+  color: #4f46e5;
+  background: #f3f4f6;
+  border: none;
+  outline: none;
+  transition: background 0.18s;
+  user-select: none;
+}
+.sub-accordion-header:hover, .sub-accordion-header:focus {
+  background: #e0e7ff;
+}
+.sub-accordion-header .arrow {
+  margin-right: 10px;
+  font-size: 1em;
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1);
+}
+.sub-accordion-header.open .arrow {
+  transform: rotate(90deg);
+}
+
+.sub-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #f9fafb;
+  transition: max-height 0.35s cubic-bezier(.4,2,.6,1);
+  box-sizing: border-box;
+}
+.sub-accordion-content.open {
+  padding: 8px 0 8px 24px;
+  max-height: 1000px;
+  transition: max-height 0.45s cubic-bezier(.4,2,.6,1);
+}
+
+.konu-checkbox {
+  margin-right: 12px;
+  accent-color: #6366f1;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  transition: box-shadow 0.2s;
+}
+.konu-checkbox:focus {
+  outline: 2px solid #6366f1;
+  box-shadow: 0 0 0 2px #c7d2fe;
+}
+
+.konu-adi {
+  color: #2d3a4a;
+  font-size: 1.01rem;
+  font-weight: 500;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+li.tamamlandi .konu-adi {
+  text-decoration: line-through;
+  color: #b0b6c3;
+  opacity: 0.7;
 }
 
 .konu-listesi {
@@ -55,8 +165,8 @@ h1 {
 
 .konu-listesi > li {
   display: flex;
-  align-items: flex-start;
-  padding: 10px 0 10px 0;
+  align-items: center;
+  padding: 7px 0 7px 0;
   border-bottom: 1px solid #e5e7eb;
   transition: background 0.15s;
 }
@@ -64,63 +174,26 @@ h1 {
   border-bottom: none;
 }
 
-.konu-checkbox {
-  margin-right: 16px;
-  accent-color: #6366f1;
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
-  transition: box-shadow 0.2s;
-}
-.konu-checkbox:focus {
-  outline: 2px solid #6366f1;
-  box-shadow: 0 0 0 2px #c7d2fe;
-}
-
-.konu-adi {
-  flex: 1;
-  color: #2d3a4a;
-  font-size: 1.08rem;
-  font-weight: 500;
-  line-height: 1.6;
-  word-break: break-word;
-}
-
-.konu-listesi li.tamamlandi .konu-adi {
-  text-decoration: line-through;
-  color: #b0b6c3;
-  opacity: 0.7;
-}
-
-.konu-listesi ul.konu-listesi {
-  margin-left: 32px;
-  margin-top: 4px;
-  background: #f3f4f6;
-  border-radius: 8px;
-  padding: 8px 12px 8px 12px;
-  box-shadow: 0 1px 4px rgba(60, 72, 100, 0.04);
-}
-
 @media (max-width: 700px) {
   .container {
-    padding: 18px 4vw 18px 4vw;
+    padding: 12px 2vw 12px 2vw;
   }
   h1 {
     font-size: 1.3rem;
   }
-  .konu-ders {
-    padding: 14px 6px 10px 10px;
+  .accordion-header {
+    font-size: 1.01rem;
+    padding: 13px 8px;
   }
-  .konu-ders h2 {
-    font-size: 1.05rem;
-    padding-left: 7px;
+  .accordion-content.open {
+    padding: 8px 8px 12px 18px;
   }
-  .konu-adi {
-    font-size: 0.98rem;
+  .sub-accordion-header {
+    font-size: 0.97rem;
+    padding: 8px 6px 8px 12px;
   }
-  .konu-listesi ul.konu-listesi {
-    margin-left: 16px;
-    padding: 6px 6px 6px 10px;
+  .sub-accordion-content.open {
+    padding: 6px 0 6px 12px;
   }
 }
 

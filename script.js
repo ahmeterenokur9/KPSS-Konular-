@@ -1,3 +1,4 @@
+// KPSS Konuları (accordion için aynı veri yapısı)
 // KPSS Lisans Ders ve Konuları (Sitedeki gibi ayrıntılı Türkçe, Matematik, Geometri, Tarih, Coğrafya, Vatandaşlık)
 const kpssKonulari = [
   {
@@ -635,86 +636,102 @@ const STORAGE_KEY = 'kpss_konular_takip';
 function loadDurum() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
 }
-
 function saveDurum(durum) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(durum));
 }
 
-function renderKpssListesi() {
+function createAccordion() {
   const durum = loadDurum();
-  const container = document.getElementById('kpss-listesi');
+  const container = document.getElementById('kpss-accordion');
   container.innerHTML = '';
+  const accordion = document.createElement('div');
+  accordion.className = 'accordion';
 
   kpssKonulari.forEach((dersObj, dersIdx) => {
-    const dersDiv = document.createElement('div');
-    dersDiv.className = 'konu-ders';
-    const h2 = document.createElement('h2');
-    h2.textContent = dersObj.ders;
-    dersDiv.appendChild(h2);
+    const item = document.createElement('div');
+    item.className = 'accordion-item';
 
-    const ul = document.createElement('ul');
-    ul.className = 'konu-listesi';
-
-    dersObj.konular.forEach((konu, konuIdx) => {
-      if (typeof konu === 'string') {
-        // Düz konu
-        const li = document.createElement('li');
-        if (durum[`${dersIdx}_${konuIdx}`]) {
-          li.classList.add('tamamlandi');
-        }
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.className = 'konu-checkbox';
-        checkbox.checked = !!durum[`${dersIdx}_${konuIdx}`];
-        checkbox.addEventListener('change', () => {
-          durum[`${dersIdx}_${konuIdx}`] = checkbox.checked;
-          saveDurum(durum);
-          renderKpssListesi();
-        });
-        const span = document.createElement('span');
-        span.className = 'konu-adi';
-        span.textContent = konu;
-        li.appendChild(checkbox);
-        li.appendChild(span);
-        ul.appendChild(li);
-      } else if (typeof konu === 'object' && konu.konu && Array.isArray(konu.altKonular)) {
-        // Ana konu + alt başlıklar
-        const li = document.createElement('li');
-        const span = document.createElement('span');
-        span.className = 'konu-adi';
-        span.textContent = konu.konu;
-        li.appendChild(span);
-        // Alt başlıklar için iç içe ul
-        const altUl = document.createElement('ul');
-        altUl.className = 'konu-listesi';
-        konu.altKonular.forEach((altKonu, altIdx) => {
-          const altLi = document.createElement('li');
-          if (durum[`${dersIdx}_${konuIdx}_${altIdx}`]) {
-            altLi.classList.add('tamamlandi');
-          }
-          const altCheckbox = document.createElement('input');
-          altCheckbox.type = 'checkbox';
-          altCheckbox.className = 'konu-checkbox';
-          altCheckbox.checked = !!durum[`${dersIdx}_${konuIdx}_${altIdx}`];
-          altCheckbox.addEventListener('change', () => {
-            durum[`${dersIdx}_${konuIdx}_${altIdx}`] = altCheckbox.checked;
-            saveDurum(durum);
-            renderKpssListesi();
-          });
-          const altSpan = document.createElement('span');
-          altSpan.className = 'konu-adi';
-          altSpan.textContent = altKonu;
-          altLi.appendChild(altCheckbox);
-          altLi.appendChild(altSpan);
-          altUl.appendChild(altLi);
-        });
-        li.appendChild(altUl);
-        ul.appendChild(li);
+    // Header
+    const header = document.createElement('button');
+    header.className = 'accordion-header';
+    header.innerHTML = `<span class="arrow">▶</span> ${dersObj.ders}`;
+    header.setAttribute('aria-expanded', 'false');
+    header.addEventListener('click', function() {
+      const isOpen = content.classList.toggle('open');
+      header.classList.toggle('open', isOpen);
+      header.setAttribute('aria-expanded', isOpen);
+      if (isOpen) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        content.style.maxHeight = null;
       }
     });
-    dersDiv.appendChild(ul);
-    container.appendChild(dersDiv);
+
+    // Content
+    const content = document.createElement('div');
+    content.className = 'accordion-content';
+    content.style.maxHeight = null;
+    content.appendChild(renderKonuListesi(dersObj.konular, `${dersIdx}`, durum));
+
+    item.appendChild(header);
+    item.appendChild(content);
+    accordion.appendChild(item);
   });
+  container.appendChild(accordion);
 }
 
-document.addEventListener('DOMContentLoaded', renderKpssListesi);
+function renderKonuListesi(konular, keyPrefix, durum) {
+  const ul = document.createElement('ul');
+  ul.className = 'konu-listesi';
+  konular.forEach((konu, idx) => {
+    const li = document.createElement('li');
+    const thisKey = `${keyPrefix}_${idx}`;
+    if (typeof konu === 'string') {
+      // En alt düzey konu, checkbox göster
+      if (durum[thisKey]) li.classList.add('tamamlandi');
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.className = 'konu-checkbox';
+      checkbox.checked = !!durum[thisKey];
+      checkbox.addEventListener('change', () => {
+        durum[thisKey] = checkbox.checked;
+        saveDurum(durum);
+        createAccordion();
+      });
+      const span = document.createElement('span');
+      span.className = 'konu-adi';
+      span.textContent = konu;
+      li.appendChild(checkbox);
+      li.appendChild(span);
+    } else if (typeof konu === 'object' && konu.konu) {
+      // Alt başlık varsa, iç içe accordion
+      const subAccordion = document.createElement('div');
+      subAccordion.className = 'sub-accordion';
+      const subHeader = document.createElement('button');
+      subHeader.className = 'sub-accordion-header';
+      subHeader.innerHTML = `<span class="arrow">▶</span> ${konu.konu}`;
+      subHeader.setAttribute('aria-expanded', 'false');
+      const subContent = document.createElement('div');
+      subContent.className = 'sub-accordion-content';
+      subContent.style.maxHeight = null;
+      subContent.appendChild(renderKonuListesi(konu.altKonular, `${thisKey}`, durum));
+      subHeader.addEventListener('click', function() {
+        const isOpen = subContent.classList.toggle('open');
+        subHeader.classList.toggle('open', isOpen);
+        subHeader.setAttribute('aria-expanded', isOpen);
+        if (isOpen) {
+          subContent.style.maxHeight = subContent.scrollHeight + 'px';
+        } else {
+          subContent.style.maxHeight = null;
+        }
+      });
+      subAccordion.appendChild(subHeader);
+      subAccordion.appendChild(subContent);
+      li.appendChild(subAccordion);
+    }
+    ul.appendChild(li);
+  });
+  return ul;
+}
+
+document.addEventListener('DOMContentLoaded', createAccordion);
