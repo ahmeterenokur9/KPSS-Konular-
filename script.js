@@ -1,4 +1,4 @@
-// KPSS Lisans Ders ve Konuları (Sitedeki gibi ayrıntılı Türkçe ve Matematik)
+// KPSS Lisans Ders ve Konuları (Sitedeki gibi ayrıntılı Türkçe, Matematik ve Geometri)
 const kpssKonulari = [
   {
     ders: 'Türkçe',
@@ -309,6 +309,70 @@ const kpssKonulari = [
         ]
       },
       'Sayısal Mantık'
+    ]
+  },
+  {
+    ders: 'Geometri',
+    konular: [
+      {
+        konu: 'Geometrik Kavramlar Ve Doğruda Açılar',
+        altKonular: [
+          'Geometrik Kavramlar',
+          'Üçgende Açılar',
+          'Dik Üçgen',
+          'Üçgende Açıortay Teoremleri',
+          'Üçgende Kenarortay Teoremleri',
+          'Özel Üçgenler',
+          'Üçgende Alan',
+          'Üçgende Benzerlik',
+          'Üçgende Açı-Kenar Bağıntıları'
+        ]
+      },
+      {
+        konu: 'Çokgenler Ve Dörtgenler',
+        altKonular: [
+          'Çokgenler',
+          'Dörtgenler',
+          'Paralelkenar-Eşkanar-Dörtgen',
+          'Dikdörtgen-Kare',
+          'Yamuk-Deltoid'
+        ]
+      },
+      {
+        konu: 'Çember Ve Daire',
+        altKonular: [
+          'Çemberde Açı',
+          'Çemberde Uzunluk',
+          'Dairede Alan'
+        ]
+      },
+      {
+        konu: 'Analitik Geometri',
+        altKonular: [
+          'Noktanın Analitik İncelenmesi',
+          'Analitik Düzlem',
+          'Doğrunun Analitik İncelenmesi',
+          'Doğrunun Grafiğinin Çizimi',
+          'Doğrunun Denklemleri',
+          'Simetriler',
+          'Eşitsizlikler'
+        ]
+      },
+      {
+        konu: 'Katı Cisimler',
+        altKonular: [
+          'Prizma',
+          'Dikdörtgenler Prizması',
+          'Küp',
+          'Silindir',
+          'Dönel Silindir',
+          'Piramit',
+          'Düzgün Piramit',
+          'Kesik Piramit',
+          'Koni',
+          'Küre'
+        ]
+      }
     ]
   },
   {
