@@ -1,4 +1,4 @@
-// KPSS Lisans Ders ve Konuları (Sitedeki gibi ayrıntılı Türkçe, Matematik ve Geometri)
+// KPSS Lisans Ders ve Konuları (Sitedeki gibi ayrıntılı Türkçe, Matematik, Geometri, Tarih ve Coğrafya)
 const kpssKonulari = [
   {
     ders: 'Türkçe',
@@ -378,33 +378,124 @@ const kpssKonulari = [
   {
     ders: 'Tarih',
     konular: [
-      'İlk Türk Devletleri',
       'İslamiyet Öncesi Türk Tarihi',
-      'İslam Tarihi ve Uygarlığı',
-      'Türk-İslam Devletleri',
-      'Osmanlı Devleti Kuruluş',
-      'Osmanlı Devleti Yükselme',
-      'Osmanlı Devleti Duraklama',
-      'Osmanlı Devleti Gerileme',
-      'Osmanlı Devleti Dağılma',
-      'Kurtuluş Savaşı Hazırlık',
-      'Kurtuluş Savaşı Cepheler',
+      'İlk Türk - İslam Devletleri ve Beylikleri',
+      'Osmanlı Devleti Kuruluş ve Yükselme Dönemleri',
+      'Osmanlı Devleti’nde Kültür ve Uygarlık',
+      'XVII. Yüzyılda Osmanlı Devleti (Duraklama Dönemi)',
+      'XVIII. Yüzyılda Osmanlı Devleti (Gerileme Dönemi)',
+      'XIX..Yüzyılda Osmanlı Devleti (Dağılma Dönemi',
+      'XX. Yüzyılda Osmanlı Devleti',
+      'Kurtuluş Savaşı Hazırlık Dönemi',
+      'I. TBMM Dönemi',
+      'Kurtuluş Savaşı Muharebeler Dönemi',
+      'Atatürk İnkılapları',
       'Atatürk İlkeleri',
-      'İnkılaplar',
+      'Partiler ve Partileşme Dönemi (İç Politika)',
+      'Atatürk Dönemi Türk Dış Politikası',
+      'Atatürk Sonrası Dönem',
+      'Atatürk’ün Hayatı ve Kişiliği',
       'Çağdaş Türk ve Dünya Tarihi'
     ]
   },
   {
     ders: 'Coğrafya',
     konular: [
-      'Türkiye’nin Coğrafi Konumu',
-      'Harita Bilgisi',
-      'İklim Bilgisi',
-      'Yer Şekilleri',
-      'Nüfus ve Yerleşme',
-      'Ekonomik Faaliyetler',
-      'Bölgeler',
-      'Çevre ve Toplum'
+      {
+        konu: 'Türkiye’nin Coğrafi Konumu',
+        altKonular: [
+          'Matematik (Mutlak) Konum',
+          'Türkiye’nin Matematik (Mutlak) Konumu ve Sonuçları',
+          'Türkiye’nin Özel (Göreceli) Konumu ve Sonuçları.',
+          'Türkiye’nin Jeopolitiği'
+        ]
+      },
+      {
+        konu: 'Türkiye’nin Yerşekilleri ve Özellikleri',
+        altKonular: [
+          'Türkiye’nin Yerşekillerinin Genel Özellikleri',
+          'Fiziki Haritalar',
+          'Türkiye’nin Jeolojik Geçmişi',
+          'Türkiye’nin Platoları ve Ovaları',
+          'Türkiye’de Dış Güçlerin Oluşturduğu Yer Şekilleri',
+          'Türkiye’nin Kıyı Tipleri',
+          'Türkiye’de Toprak Oluşumu ve Tipleri',
+          'Türkiye’nin Su Varlığı',
+          'Türkiye’de Doğal Afetler'
+        ]
+      },
+      {
+        konu: 'Türkiye’nin İklimi ve Bitki Örtüsü',
+        altKonular: [
+          'Türkiye’nin İklimi',
+          'Türkiye’de Sıcaklık',
+          'Türkiye’de Nemlilik ve Yağış',
+          'Türkiye’de İklim Tipleri',
+          'Türkiye’nin Bitki Örtüsü',
+          'Türkiye’nin İklim Tipleri ve Bitki Örtüsü'
+        ]
+      },
+      {
+        konu: 'Türkiye’de Nüfus ve Yerleşme',
+        altKonular: [
+          'Türkiye’de Nüfus Özellikleri',
+          'Türkiye’de Nüfusun Dağılışı ve Nüfus Yoğunluğu',
+          'Türkiye’nin Nüfusu ve Nüfus Sayımları',
+          'Türkiye’nin Nüfus Politikaları',
+          'Türkiye’de Nüfus Projeksiyonları: Türkiye Nüfusunun Geleceği',
+          'Türkiye’de Göçler',
+          'Türkiye’de Yerleşme',
+          'Türkiye’de Mesken Tipleri'
+        ]
+      },
+      {
+        konu: 'Türkiye’de Tarım, Hayvancılık ve Ormancılık',
+        altKonular: [
+          'Anadolu Uygarlıkları',
+          'Türkiye’de Arazi Kullanımı',
+          'Türkiye Ekonomisinin Sektörel Dağılımı',
+          'Türkiye Ekonomisini Etkileyen Faktörler',
+          'Türkiye’de Tarım',
+          'Türkiye’de Hayvancılık',
+          'Türkiye’de Ormancılık'
+        ]
+      },
+      {
+        konu: 'Türkiye’de Madenler, Enerji Kaynakları ve Sanayi',
+        altKonular: [
+          'Türkiye’de Madenler',
+          'Türkiye’de Enerji Kaynakları.',
+          'Türkiye’de Sanayi'
+        ]
+      },
+      {
+        konu: 'Türkiye’de Ulaşım, Ticaret ve Turizm',
+        altKonular: [
+          'Türkiye’de Ulaşım',
+          'Türkiye’de Ticaret',
+          'Türkiye’de Turizm'
+        ]
+      },
+      {
+        konu: 'Türkiye’nin Millî Parkları Türkiye’de Şehirler ve Özellikleri',
+        altKonular: []
+      },
+      {
+        konu: 'Türkiye’nin Coğrafi Bölgeleri',
+        altKonular: [
+          'Türkiye’de Bölge Sınıflandırması',
+          'Türkiye’nin Bölgesel Kalkınma Projeleri',
+          'Türkiye’nin Coğrafi Bölgeleri',
+          'Karadeniz Bölgesi',
+          'Marmara Bölgesi',
+          'Ege Bölgesi',
+          'Akdeniz Bölgesi',
+          'İç Anadolu Bölgesi',
+          'Doğu Anadolu Bölgesi',
+          'Güneydoğu Anadolu Bölgesi',
+          'Bölgelerin Özelliklerinin Karşılaştırılması'
+        ]
+      }
     ]
   },
   {
