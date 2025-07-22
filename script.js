@@ -1,4 +1,4 @@
-// KPSS Lisans Ders ve Konuları (Sitedeki gibi ayrıntılı Türkçe)
+// KPSS Lisans Ders ve Konuları (Sitedeki gibi ayrıntılı Türkçe ve Matematik)
 const kpssKonulari = [
   {
     ders: 'Türkçe',
@@ -251,40 +251,64 @@ const kpssKonulari = [
     ders: 'Matematik',
     konular: [
       'Temel Kavramlar',
-      'Sayı Basamakları',
-      'Bölme ve Bölünebilme',
-      'EBOB – EKOK',
-      'Rasyonel Sayılar',
-      'Basit Eşitsizlikler',
-      'Mutlak Değer',
+      {
+        konu: 'Sayılar',
+        altKonular: [
+          'Sayı Kümeleri',
+          'Doğal Sayılar',
+          'Tam Sayılar',
+          'Faktöriyel',
+          'Sayma Sistemleri',
+          'Bölme',
+          'Bölünebilme Kuralları'
+        ]
+      },
+      'Ebob - Ekok',
+      'Asal Çarpanlara Ayırma',
+      'Denklemler',
+      {
+        konu: 'Rasyonel Sayılar',
+        altKonular: [
+          'Kesir ve Kesir Türleri',
+          'Rasyonel Sayılarda Dört İşlem'
+        ]
+      },
+      {
+        konu: 'Eşitsizlik - Mutlak Değer',
+        altKonular: [
+          'Basit Eşitsizlikler',
+          'Mutlak Değer'
+        ]
+      },
       'Üslü Sayılar',
       'Köklü Sayılar',
       'Çarpanlara Ayırma',
-      'Oran Orantı',
-      'Denklem Çözme',
+      'Oran - Orantı',
       {
         konu: 'Problemler',
         altKonular: [
-          'Sayı Problemleri',
-          'Kesir Problemleri',
+          'Denklem Kurma Problemleri',
           'Yaş Problemleri',
-          'Hareket Hız Problemleri',
-          'İşçi Emek Problemleri',
           'Yüzde Problemleri',
-          'Kar Zarar Problemleri',
+          'Faiz Problemleri',
+          'Kâr – Zarar Problemleri',
           'Karışım Problemleri',
-          'Grafik Problemleri',
-          'Rutin Olmayan Problemler'
+          'İşçi Problemleri',
+          'Havuz Problemleri',
+          'Hareket Problemleri'
         ]
       },
-      'Kümeler – Kartezyen Çarpım',
-      'Mantık',
-      'Fonksiyonlar',
-      'Polinomlar',
-      '2. Dereceden Denklemler',
-      'Permütasyon ve Kombinasyon',
-      'Olasılık',
-      'Veri – İstatistik'
+      'Kümeler',
+      'İşlem - Modüler Aritmetik',
+      'Permütasyon - Kombinasyon - Olasılık',
+      {
+        konu: 'Tablo ve Grafikler',
+        altKonular: [
+          'Tablo ve Yorumlama',
+          'Grafik ve Yorumlama'
+        ]
+      },
+      'Sayısal Mantık'
     ]
   },
   {
