@@ -1,54 +1,134 @@
 body {
-  background: #f4f6fb;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
+
 .container {
-  max-width: 700px;
-  margin: 40px auto;
+  max-width: 900px;
+  margin: 48px auto 32px auto;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-  padding: 32px 24px;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(60, 72, 100, 0.12);
+  padding: 40px 28px 32px 28px;
+  position: relative;
 }
+
 h1 {
   text-align: center;
   color: #2d3a4a;
-  margin-bottom: 32px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 36px;
+  letter-spacing: -1px;
 }
+
 .konu-ders {
-  margin-bottom: 24px;
+  margin-bottom: 36px;
+  background: #f6f8fa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60, 72, 100, 0.04);
+  padding: 24px 20px 18px 20px;
+  transition: box-shadow 0.2s;
 }
+.konu-ders:hover {
+  box-shadow: 0 6px 24px rgba(60, 72, 100, 0.10);
+}
+
 .konu-ders h2 {
   color: #3b4a5a;
-  font-size: 1.2em;
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+  border-left: 4px solid #6366f1;
+  padding-left: 12px;
 }
+
 .konu-listesi {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.konu-listesi li {
+
+.konu-listesi > li {
   display: flex;
-  align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid #f0f0f0;
+  align-items: flex-start;
+  padding: 10px 0 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.15s;
 }
-.konu-listesi li:last-child {
+.konu-listesi > li:last-child {
   border-bottom: none;
 }
+
 .konu-checkbox {
-  margin-right: 12px;
-  accent-color: #4f8cff;
+  margin-right: 16px;
+  accent-color: #6366f1;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  transition: box-shadow 0.2s;
 }
+.konu-checkbox:focus {
+  outline: 2px solid #6366f1;
+  box-shadow: 0 0 0 2px #c7d2fe;
+}
+
 .konu-adi {
   flex: 1;
   color: #2d3a4a;
-  font-size: 1em;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.6;
+  word-break: break-word;
 }
+
 .konu-listesi li.tamamlandi .konu-adi {
   text-decoration: line-through;
-  color: #aaa;
+  color: #b0b6c3;
+  opacity: 0.7;
+}
+
+.konu-listesi ul.konu-listesi {
+  margin-left: 32px;
+  margin-top: 4px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 8px 12px 8px 12px;
+  box-shadow: 0 1px 4px rgba(60, 72, 100, 0.04);
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 18px 4vw 18px 4vw;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  .konu-ders {
+    padding: 14px 6px 10px 10px;
+  }
+  .konu-ders h2 {
+    font-size: 1.05rem;
+    padding-left: 7px;
+  }
+  .konu-adi {
+    font-size: 0.98rem;
+  }
+  .konu-listesi ul.konu-listesi {
+    margin-left: 16px;
+    padding: 6px 6px 6px 10px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #e0e7ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 8px;
 }
